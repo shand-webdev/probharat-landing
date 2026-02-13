@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ProBharat Genesis – Structured Validation Cohort 01</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --black: #000000;
+            --white: #FFFFFF;
+            --paper: #FCFCFB;
+            --accent: #EA580C; /* ProBharat Orange */
+            --gray-light: #F1F1F0;
+            --gray-med: #D4D4D2;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--paper);
+            color: var(--black);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container { max-width: 850px; margin: auto; padding: 60px 24px; }
+
+        /* Editorial Top Bar */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 4px solid var(--black);
+            padding-bottom: 15px;
+            margin-bottom: 60px;
+        }
+
+        .brand { font-weight: 900; letter-spacing: -1px; font-size: 24px; text-transform: lowercase; }
+        .brand span { color: var(--accent); }
+        .edition-tag { font-[10px] font-black uppercase tracking-[0.2em] text-gray-400; }
+
+        /* Header */
+        header { text-align: left; margin-bottom: 80px; }
+        
+        .eyebrow { 
+            color: var(--accent); 
+            font-weight: 900; 
+            text-transform: uppercase; 
+            letter-spacing: 3px; 
+            font-size: 12px; 
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(40px, 8vw, 72px);
+            line-height: 0.95;
+            letter-spacing: -2px;
+            margin-bottom: 30px;
+        }
+
+        .hero-sub {
+            font-size: 20px;
+            color: #444;
+            max-width: 600px;
+            font-weight: 400;
+            border-left: 2px solid var(--accent);
+            padding-left: 20px;
+        }
+
+        /* Content Sections */
+        section { margin-bottom: 80px; }
+        
+        h2 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 900;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            border-bottom: 1px solid var(--black);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        .thesis-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            line-height: 1.4;
+            color: #222;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .feature-box h3 { font-weight: 900; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+        .feature-box p { font-size: 15px; color: #555; }
+
+        /* The ProBharat Linkage Section */
+        .probharat-bridge {
+            background: var(--black);
+            color: var(--white);
+            padding: 40px;
+            margin: 60px 0;
+        }
+
+        .probharat-bridge h2 { color: var(--white); border-color: #333; }
+        .probharat-bridge p { color: #aaa; margin-bottom: 20px; }
+        .badge-preview {
+            display: inline-block;
+            border: 1px solid var(--accent);
+            padding: 5px 15px;
+            color: var(--accent);
+            font-weight: 900;
+            font-size: 10px;
+            letter-spacing: 2px;
+            margin-top: 10px;
+        }
+
+        /* Logos */
+        .logo-grid {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+            filter: grayscale(100%) invert(0);
+            opacity: 0.6;
+            margin: 40px 0;
+        }
+        .logo-grid img { height: 30px; object-fit: contain; }
+
+        /* Form Styling */
+        form { border: 1px solid var(--black); padding: 40px; background: white; }
+        label { font-weight: 900; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; display: block; margin-bottom: 10px; }
+        
+        input, textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid var(--gray-light);
+            font-family: 'Inter', sans-serif;
+            margin-bottom: 25px;
+            background: var(--paper);
+        }
+
+        input:focus, textarea:focus { outline: none; border-color: var(--black); }
+
+        .btn-submit {
+            background: var(--black);
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 12px;
+            cursor: pointer;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        .btn-submit:hover { background: var(--accent); }
+
+        footer {
+            text-align: center;
+            padding: 60px 0;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #999;
+        }
+
+        @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <nav class="top-nav">
+        <div class="brand">Pro<span>Bharat</span></div>
+        <div class="edition-tag">Project Genesis • 2026</div>
+    </nav>
+
+    <header>
+        <span class="eyebrow">The Validation Program</span>
+        <h1>We help Indian builders stop guessing.</h1>
+            <p><strong>Cohort 01</strong> </p>
+            <p>10 submissions. 15 days. Free deep written feedback from experienced builders.</p>
+
+    </header>
+
+   <section>
+    <h2>The Thesis</h2>
+    <p class="thesis-text">
+        India builds. India ships. But serious, structured feedback is rare.
+        Most founders rely on Reddit threads, friends, or silence.
+        This initiative exists to provide thoughtful, written evaluation from experienced builders, privately and without theatrics.
+    </p>
+</section>
+
+<section class="grid">
+
+    <div class="feature-box">
+        <h3>01. Structured Written Evaluation</h3>
+        <p>
+            Each selected product receives a minimum of five detailed written reviews.
+            Feedback focuses on clarity of problem, target audience, UX logic,
+            technical feasibility, and market positioning.
+            This is asynchronous. No live sessions. No presentations required.
+        </p>
+    </div>
+
+    <div class="feature-box">
+        <h3>02. Domain Perspective</h3>
+        <p>
+            1–3 experienced builders provide contextual commentary.
+            These are written critiques based on their professional experience.
+            There are no calls, workshops, or mentorship commitments,
+            only thoughtful, documented feedback.
+        </p>
+    </div>
+
+    <div class="feature-box">
+        <h3>03. The Structural Report</h3>
+        <p>
+            Feedback is consolidated into a structured summary highlighting:
+            strengths, blind spots, competitive landscape risks,
+            and recommended next experiments.
+            
+        </p>
+    </div>
+
+    <div class="feature-box">
+        <h3>04. Founding Recognition</h3>
+        <p>
+            All selected projects become Founding Members of ProBharat
+            and receive permanent recognition when the public directory launches.
+            Top 3 projects receive additional distinction.
+        </p>
+    </div>
+
+</section>
+
+<section style="margin-top:60px;">
+    <h2>What This Is Not</h2>
+    <p>
+        This is not an accelerator, incubator, investment program, or classroom.
+        No equity is taken. No payment is required.
+        Participation is fully remote and feedback-based.
+    </p>
+</section>
+
+
+    <section class="probharat-bridge" style="margin-top:80px;">
+
+    <h2>The ProBharat Initiative</h2>
+
+    <p>
+        This validation cohort is the founding layer of <strong>ProBharat</strong>,  
+        a structured discovery and feedback network for Indian builders.
+    </p>
+
+    <p>
+        ProBharat is being built to document, validate, and surface serious products 
+        emerging from India — across sectors, states, and disciplines.
+    </p>
+
+    <h3 style="margin-top:30px; font-family:'Playfair Display', serif;">What Cohort 01 Members Receive</h3>
+
+    <ul style="list-style:none; font-size:15px; line-height:2; padding-left:0; margin-top:15px;">
+                <li>● Permanent <strong>Founding Member</strong> recognition on ProBharat.</li>
+
+        <li>● Free product listing when the full directory launches.</li>
+        <li>● Priority visibility during initial platform rollout.</li>
+        <li>● Eligibility for <strong>Top 3 Validated Projects</strong> distinction.</li>
+    </ul>
+
+    <p style="margin-top:25px; font-size:14px; color:#555;">
+        Top 3 selected projects will receive a permanent “Validated by ProBharat” 
+        distinction on their product profile.
+    </p>
+
+    <div style="
+        margin-top:30px;
+        display:inline-block;
+        padding:10px 20px;
+        border:1px solid #111;
+        font-size:13px;
+        letter-spacing:2px;
+        text-transform:uppercase;
+    ">
+        FOUNDING MEMBER — PROBHARAT 2026
+    </div>
+
+</section>
+
+
+    <section>
+        <h2>The Council Perspective</h2>
+        <div class="logo-grid">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a2/IIM_Bangalore_Logo.svg/500px-IIM_Bangalore_Logo.svg.png" alt="IIMB">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Postman_%28software%29.png/500px-Postman_%28software%29.png" alt="Postman">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/ZOHO_logo_2023.svg/330px-ZOHO_logo_2023.svg.png" alt="Zoho">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Logo_NIKE.svg/1200px-Logo_NIKE.svg.png" alt="Nike">
+        </div>
+        <p style="font-size: 12px; color: #888; font-style: italic;">
+            * Council members serve in individual capacities as independent mentors.
+        </p>
+    </section>
+
+    <section id="apply">
+    <h2>Genesis Application</h2>
+
+    <p style="margin-bottom:30px; color:#555;">
+        Cohort 01 is limited to 10 projects. Applications close on 
+        <strong>March 1, 2026 |  11:59 PM IST.</strong>
+    </p>
+
+    <form action="https://formspree.io/f/mlgwjqwp" method="POST">
+
+        <!-- Anti-spam hidden field -->
+    <input type="hidden" name="_subject" value="New Build Application Submission">
+
+    <label>Full Name</label>
+    <input type="text" name="Full Name" placeholder="Your Name" required>
+
+    <label>Email Address</label>
+    <input type="email" name="Email" placeholder="Where we send your evaluation" required>
+
+    <label>Product Name</label>
+    <input type="text" name="Product Name" placeholder="Project / Startup Name" required>
+
+    <label>Product Link</label>
+    <input type="url" name="Product Link" placeholder="Website / Demo / GitHub / Landing Page" required>
+
+    <label>The Core Pain Point</label>
+    <textarea name="Core Pain Point" rows="3" placeholder="What singular problem does your product solve?" required></textarea>
+
+    <label>Current Status</label>
+    <textarea name="Current Status" rows="2" placeholder="Idea stage, MVP, or live users?" required></textarea>
+
+    <label>Your Biggest Doubt</label>
+    <textarea name="Biggest Doubt" rows="2" placeholder="What are you most unsure about?" required></textarea>
+
+    <label>Product Logo (Optional)</label>
+    <input type="url" name="Product Logo Link" placeholder="Link to logo image (Drive / Dropbox / Website)">
+
+    <button type="submit" class="btn-submit">Submit Application</button>
+
+    <p style="text-align:center; font-size:12px; margin-top:20px; color:#777;">
+        Selected applicants will be notified within 5 days of submission.
+    </p>
+
+    <p style="text-align:center; font-size:11px; margin-top:10px; color:#999;">
+        Your information is used only for evaluation purposes and will not be shared publicly without consent.
+    </p>
+
+</form>
+</section>
+
+
+    <footer>
+        <p>© 2026 A PROBHARAT GENESIS INITIATIVE</p>
+        <p>Built for the next generation of Indian builders.</p>
+    </footer>
+</div>
+
+</body>
+</html>
